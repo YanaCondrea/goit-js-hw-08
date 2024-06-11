@@ -65,6 +65,9 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery"); 
+list.insertAdjacentHTML("afterbegin", createMurkup(images));
+
+
 
 function createMurkup(array) {
     return array.map(({ preview, original, description }) => `
@@ -77,12 +80,37 @@ function createMurkup(array) {
       alt="${description}"
     />
   </a>
-</li>`).join("");
-    
+</li>`).join("");   
 }
 
-list.insertAdjacentHTML("afterbegin", createMurkup(images));
+ 
+// container.addEventListener("click", handlerGetColor);
+// [...container.children].forEach((box) => {
+//   box.addEventListener('click', handlerGetColor)
+// })
 
+// function handlerGetColor(evt){
+//   const color = evt.currentTarget.dataset.color;
+// console.log(color)
+// }
+// const container = document.querySelector(".js-container");
+
+
+
+// function handlerGetColor(evt) {
+//   // console.log('currentTarget', evt.currentTarget)
+//   // console.log('target', evt.target)
+
+
+
+//   if (!evt.target.classList.contains("js-box")) {
+//     return;
+//   }
+
+//   // console.log("target", evt.target);
+//   const color = evt.target.dataset.color;
+//   console.log(color)
+// }
 
 
 
