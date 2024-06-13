@@ -63,8 +63,11 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+console.log(basicLightbox);
 
 const list = document.querySelector(".gallery"); 
+const item = document.querySelectorAll(".gallery-item");
+const img = document.querySelectorAll(".gallery-image");
 list.insertAdjacentHTML("afterbegin", createMurkup(images));
 
 
@@ -80,37 +83,29 @@ function createMurkup(array) {
       alt="${description}"
     />
   </a>
-</li>`).join("");   
+</li>`).join("");  
+  
 }
 
- 
-// container.addEventListener("click", handlerGetColor);
-// [...container.children].forEach((box) => {
-//   box.addEventListener('click', handlerGetColor)
-// })
+list.addEventListener("click", selectImg);
 
-// function handlerGetColor(evt){
-//   const color = evt.currentTarget.dataset.color;
-// console.log(color)
-// }
-// const container = document.querySelector(".js-container");
+function selectImg(evt) {
+if (evt.target.classList.contains("gallery-image")) {
+const largeImage = evt.target.dataset.source;
+  console.log(largeImage);
 
-
-
-// function handlerGetColor(evt) {
-//   // console.log('currentTarget', evt.currentTarget)
-//   // console.log('target', evt.target)
+  const instance = basicLightbox.create(`
+  <div class="modal">
+    <img src="${largeImage}" width="1112" height="640">
+  </div>
+`);
+instance.show()
+  }
 
 
 
-//   if (!evt.target.classList.contains("js-box")) {
-//     return;
-//   }
+}
 
-//   // console.log("target", evt.target);
-//   const color = evt.target.dataset.color;
-//   console.log(color)
-// }
 
 
 
